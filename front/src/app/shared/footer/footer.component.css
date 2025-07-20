@@ -1,0 +1,13 @@
+.footer {
+  background-color: hsl(236, 32%, 26%);
+  position: fixed; 
+  bottom: 0;
+  left: 0; 
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  /* autres styles comme la hauteur, le padding */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  z-index: 1000; /* au-dessus du contenu */
+}

@@ -18,7 +18,7 @@ Fonctionnalités à développer :
 - Angular v.17
 - Postgres
 - Keycloak 
-- Back c# .net v.8
+- Back c# .net v.8 with Entity Framework version '9.0.7
 
 
 # Front
@@ -28,6 +28,9 @@ ng serve
 # API 
 Lancer l'api : 
 dotnet run
+
+Générer classe selon DB
+
 
 # Idées
 Pages : 

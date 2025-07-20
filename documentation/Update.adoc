@@ -1,0 +1,12 @@
+Install 
+dotnet tool install --global dotnet-ef
+
+Après modif, faire un :
+dotnet tool ef migrations add <nom_migra>
+dotnet tool ef database update
+
+Pour annuler une migra : 
+ef migrations remove
+
+Pour rollback :
+dotnet ef database update <nom>
