@@ -22,9 +22,10 @@ nav {
       text-transform: uppercase;
       font-weight: 500;
       display: inline-block;
-      width: 80px;
       -webkit-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
+      margin-right: 10px;
+      margin-left: 10px;
    }
 
    a:hover {

@@ -1,5 +1,291 @@
-<p>
-  verbPage works! {{ verb }}
-</p>
+<div class="content" *ngIf="verb">
 
-<!-- :TODO Penser à ajouter un bouton : <!> Signaler une erreur <!>-->
+  <div class="verb-category">
+    <p class="JPLT-level">{{ verb.jlptLevel }}</p>
+    <p class="verb-group">{{ verb.verbGroup }}</p>
+  </div>
+
+  <div>
+    <p>{{ verb.baseKanji }} ({{ verb.baseHiragana }}) - {{ verb.translationFr }}</p>
+  </div>
+
+  <div class="trait"></div>
+
+  <!-- Présent -->
+  <h3>Présent</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th><th>Kanji</th><th>Hiragana</th><th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Positive</td>
+        <td>{{ verb.neutralPresentKanji }}</td>
+        <td>{{ verb.neutralPresentHiragana }}</td>
+        <td>{{ verb.neutralPresentRomaji }}</td>
+      </tr>
+      <tr>
+        <td>Négative</td>
+        <td>{{ verb.neutralPresentNegativeKanji }}</td>
+        <td>{{ verb.neutralPresentNegativeHiragana }}</td>
+        <td>{{ verb.neutralPresentNegativeRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Passé -->
+  <h3>Passé</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th><th>Kanji</th><th>Hiragana</th><th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Positive</td>
+        <td>{{ verb.neutralPastKanji }}</td>
+        <td>{{ verb.neutralPastHiragana }}</td>
+        <td>{{ verb.neutralPastRomaji }}</td>
+      </tr>
+      <tr>
+        <td>Négative</td>
+        <td>{{ verb.neutralPastNegativeKanji }}</td>
+        <td>{{ verb.neutralPastNegativeHiragana }}</td>
+        <td>{{ verb.neutralPastNegativeRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Progressif -->
+  <h3>Progressif (forme en -ている)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Positive</td>
+        <td>{{ verb.progressiveKanji }}</td>
+        <td>{{ verb.progressiveHiragana }}</td><td>{{ verb.progressiveRomaji }}</td></tr>
+      <tr>
+        <td>Négative</td>
+        <td>{{ verb.negativeProgressiveKanji }}</td>
+        <td>{{ verb.negativeProgressiveHiragana }}</td>
+        <td>{{ verb.negativeProgressiveRomaji }}</td>
+      </tr>
+      <tr>
+        <td>Polie Négative</td>
+        <td>{{ verb.negativeProgressiveKanji }}</td>
+        <td>{{ verb.negativeProgressiveHiragana }}</td>
+        <td>{{ verb.negativeProgressiveRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <!-- Forme impérative -->
+  <h3>Impérative</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Impérative</td>
+        <td>{{ verb.imperativeKanji }}</td>
+        <td>{{ verb.imperativeHiragana }}</td>
+        <td>{{ verb.imperativeRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Forme potentielle -->
+  <h3>Potentielle (capacité à faire quelque chose)</h3>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Neutre</td>
+        <td>{{ verb.potentialKanji }}</td>
+        <td>{{ verb.potentialHiragana }}</td>
+        <td>{{ verb.potentialRomaji }}</td>
+      </tr>
+      <tr>
+        <td>Polie</td>
+        <td>{{ verb.potentialPoliteKanji }}</td>
+        <td>{{ verb.potentialPoliteHiragana }}</td>
+        <td>{{ verb.potentialPoliteRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Forme conditionnelle -->
+  <h3>Conditionnelle (si...)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Forme polie</td>
+        <td>{{ verb.conditionalPoliteKanji }}</td>
+        <td>{{ verb.conditionalPoliteHiragana }}</td>
+        <td>{{ verb.conditionalPoliteRomaji }}</td>
+      </tr>
+      <tr>
+        <td>Forme neutre</td>
+        <td>{{ verb.conditionalNeutralKanji }}</td>
+        <td>{{ verb.conditionalNeutralHiragana }}</td>
+        <td>{{ verb.conditionalNeutralRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <!-- Forme causative -->
+  <h3>Causative (faire faire)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Causative</td>
+        <td>{{ verb.causativeKanji }}</td>
+        <td>{{ verb.causativeHiragana }}</td>
+        <td>{{ verb.causativeRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Forme passive -->
+  <h3>Passive (subir une action)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Passive</td>
+        <td>{{ verb.passiveKanji }}</td>
+        <td>{{ verb.passiveHiragana }}</td>
+        <td>{{ verb.passiveRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Forme du désir</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ verb.desireKanji }}</td>
+        <td>{{ verb.desireHiragana }}</td>
+        <td>{{ verb.desireRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Forme honorifique</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ verb.honorificKanji }}</td>
+        <td>{{ verb.honorificHiragana }}</td>
+        <td>{{ verb.honorificRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Forme humble</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ verb.humbleKanji }}</td>
+        <td>{{ verb.humbleHiragana }}</td>
+        <td>{{ verb.humbleRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Forme hypothétique</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ verb.hypotheticalKanji }}</td>
+        <td>{{ verb.hypotheticalHiragana }}</td>
+        <td>{{ verb.hypotheticalRomaji }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

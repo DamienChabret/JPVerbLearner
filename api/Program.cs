@@ -1,11 +1,33 @@
 using Microsoft.EntityFrameworkCore;
 using api.Data;
 using api.services;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Ajoute les services MVC (contrôleurs)
-builder.Services.AddControllers();
+var allowedOrigin = builder.Configuration["AllowedOrigin"];
+Console.WriteLine($"AllowedOrigin: {allowedOrigin}");
+
+builder.Services.AddCors(options =>
+{
+    if (allowedOrigin != null)
+    {
+         options.AddPolicy(name: "AllowAngularDev",
+        policy =>
+        {
+            policy.WithOrigins(allowedOrigin) // Front
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+    }
+});
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        });;
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -35,6 +57,7 @@ builder.Services.AddDbContext<JPVerbLearnerContext>(
 // Build
 var app = builder.Build();
 app.UseHttpsRedirection();
+app.UseCors("AllowAngularDev"); 
 app.UseAuthorization();
 app.MapControllers();
 

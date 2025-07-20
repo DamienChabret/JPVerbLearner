@@ -1,0 +1,6 @@
+POSTGRES_USER= postgres
+POSTGRES_PASSWORD= postgres
+POSTGRES_DB=jvl
+AllowedOrigins="localhost:4200"
+
+AllowedOrigins : permission site qui peuvent utiliser l'API

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { VerbComponent } from './verb.component';
+import { AdjectivePageComponent } from './AdjectivePage.component';
 
-describe('VerbComponent', () => {
-  let component: VerbComponent;
-  let fixture: ComponentFixture<VerbComponent>;
+describe('AdjectivePageComponent', () => {
+  let component: AdjectivePageComponent;
+  let fixture: ComponentFixture<AdjectivePageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerbComponent ]
+      declarations: [ AdjectivePageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VerbComponent);
+    fixture = TestBed.createComponent(AdjectivePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

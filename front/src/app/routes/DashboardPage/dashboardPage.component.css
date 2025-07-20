@@ -10,3 +10,15 @@
       color : hsl(236, 32%, 26%)
    }
 }
+
+.quizz-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+  height: auto;
+}
+

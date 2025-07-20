@@ -34,27 +34,11 @@ Générer classe selon DB
 
 # Idées
 Pages : 
-- Liste des verbes
-Liste des verbes, sous forme de cartes avec juste en affichage les info suivante: 
-   - Forme de base
-   - Traduction
-   - Niveau JLPT
-   - Groupe
 
-- Quizz
-Au moment de lancer un Quizz, une page avec plusieurs options s'affichent :
-Politesse : Polie / Neutre
-Temps : présent / passé
-Forme à voir : 
-   - Forme Basique
-   - Forme "te"
-   - Forme potentielle
-   - Forme volitive
-   - Forme passive
-   - Forme causative
-   - Forme conditionnelle (ば, たら, etc.)
-   - Forme en cours (〜ている)
- 
 - Connexion
 
 Pour la connexion, utilisé : Keycloak 
+
+- Système de trad
+
+Faire Pareil avec les adjectifs

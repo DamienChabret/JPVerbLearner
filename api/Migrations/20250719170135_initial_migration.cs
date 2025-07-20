@@ -21,7 +21,7 @@ namespace api.Migrations
                     BaseKanji = table.Column<string>(type: "text", nullable: false),
                     BaseRomaji = table.Column<string>(type: "text", nullable: false),
                     BaseHiragana = table.Column<string>(type: "text", nullable: false),
-                    VerbeGroup = table.Column<int>(type: "integer", nullable: false),
+                    VerbGroup = table.Column<int>(type: "integer", nullable: false),
                     JlptLevel = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

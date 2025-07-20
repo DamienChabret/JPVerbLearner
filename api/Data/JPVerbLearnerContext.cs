@@ -16,6 +16,14 @@ namespace api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Verb>().ToTable("Verb");
+
+            modelBuilder.Entity<Verb>()
+                .Property(v => v.VerbGroup)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<Verb>()
+                .Property(v => v.JlptLevel)
+                .HasConversion<string>();
             
             base.OnModelCreating(modelBuilder);
         }

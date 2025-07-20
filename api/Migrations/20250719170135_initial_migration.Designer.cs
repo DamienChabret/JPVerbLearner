@@ -51,7 +51,7 @@ namespace api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("VerbeGroup")
+                    b.Property<int>("VerbGroup")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

@@ -1,0 +1,41 @@
+<div class="quizz-form">
+  <form>
+    <!-- Groupes -->
+    <label>Groupe à voir :</label>
+    <div class="group-selections">
+      <div *ngFor="let item of listGroupEnums">
+        <label> <input class="verbGroup-input" type="radio" [value]="item.key" /> {{ item.value }} </label>
+      </div>
+    </div>
+
+    <!-- Levels -->
+    <label>Levels à voir :</label>
+    <div class="levels-selections">
+      <div *ngFor="let item of listLevelEnums">
+        <label> <input class="verbLevel-input" type="radio" [value]="item.key" /> {{ item.value }} </label>
+      </div>
+    </div>
+
+    <!-- Niveau de politesse -->
+    <label>Niveau de politesse</label>
+    <div class="politeness-selections">
+      <label> <input class="verbPoliteness-input" type="radio" value="polite" /> Polie </label>
+      <label> <input class="verbPoliteness-input" type="radio" value="neutral" /> Neutre </label>
+    </div>
+
+    <!-- Formes à voir -->
+    <div class="form-selections">
+      <p>Choisissez une forme :</p>
+      <label><input class="verbForm-input" type="radio" value="present" /> Forme Présent</label>
+      <label><input class="verbForm-input" type="radio" value="past" /> Forme Passé</label>
+      <label><input class="verbForm-input" type="radio" value="basic" /> Forme Basique</label>
+      <label><input class="verbForm-input" type="radio" value="te" /> Forme "te"</label>
+      <label><input class="verbForm-input" type="radio" value="potential" /> Forme potentielle</label>
+      <label><input class="verbForm-input" type="radio" value="volitive" /> Forme volitive</label>
+      <label><input class="verbForm-input" type="radio" value="passive" /> Forme passive</label>
+      <label><input class="verbForm-input" type="radio" value="causative" /> Forme causative</label>
+      <label><input class="verbForm-input" type="radio" value="conditional" /> Forme conditionnelle (ば, たら, etc.)</label>
+      <label><input class="verbForm-input" type="radio" value="progressive" /> Forme en cours (〜ている)</label>
+    </div>
+  </form>
+</div>

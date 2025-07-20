@@ -41,15 +41,329 @@ namespace api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("JlptLevel")
-                        .HasColumnType("integer");
+                    b.Property<string>("CausativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CausativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CausativePassiveHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CausativePassiveKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CausativePassiveRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CausativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalNeutralHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalNeutralKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalNeutralRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalPoliteHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalPoliteKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ConditionalPoliteRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DesireHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DesireKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DesireRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HonorificHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HonorificKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HonorificRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HumbleHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HumbleKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HumbleRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HypotheticalHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HypotheticalKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HypotheticalRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativePoliteHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativePoliteKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativePoliteRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImperativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("JlptLevel")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NegativeProgressiveHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NegativeProgressiveKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NegativeProgressiveRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastNegativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastNegativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastNegativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPastRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentNegativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentNegativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentNegativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NeutralPresentRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PassiveHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PassiveKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PassiveRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastNegativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastNegativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastNegativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePastRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentNegativeHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentNegativeKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentNegativeRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PolitePresentRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialPoliteHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialPoliteKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialPoliteRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PotentialRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProgressiveHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProgressiveKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProgressiveRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TeFormHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TeFormKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TeFormRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("TranslationFr")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("VerbeGroup")
-                        .HasColumnType("integer");
+                    b.Property<string>("VerbGroup")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalPoliteHiragana")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalPoliteKanji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalPoliteRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("VolitionalRomaji")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
