@@ -4,11 +4,17 @@
   background-color: hsl(236, 32%, 26%);
   padding-top: 15px;
   margin-bottom: 30px;
-  /* position: relative; */ /* si pas besoin, tu peux enlever */
   font-family: 'Montserrat', sans-serif;
   width: 100%;
-  position: relative;
+  height: 50px;
+  text-align: center;
+
+  /* ✅ Propriétés de centrage */
+  display: flex;
+  align-items: center;       /* centrer verticalement */
+  justify-content: center;   /* centrer horizontalement */
 }
+
 
 nav {
   margin: 0;

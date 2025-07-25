@@ -17,9 +17,29 @@ import { NotificationContainerComponent } from '@components/notifications/notifi
   ],
   template: `
     <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div class="page-wrapper">
+      <div class="content-padding">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </div>
     <app-notification-container></app-notification-container>
   `,
+  styles: [
+    `
+      .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .content-padding {
+        flex: 1;
+        margin-right: 30px;
+        margin-left: 30px;
+      }
+    `,
+  ],
 })
 export class AppComponent {}

@@ -16,3 +16,16 @@
     }
   }
 }
+
+.bold-span {
+   font-weight: bold;
+}
+
+.terminaison {
+   color: red;
+}
+
+h3 {
+   color: hsl(236, 32%, 26%);
+   font-weight: bold;
+}
