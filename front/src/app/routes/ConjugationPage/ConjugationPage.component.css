@@ -1,0 +1,18 @@
+.choices-content {
+   button {
+      all: unset;
+      font-size: 20px;
+      padding: 20px;
+
+      &:hover {
+         cursor: pointer;
+         text-decoration: underline;      
+      }
+
+      &.active {
+         color: hsl(236, 32%, 26%);
+         font-weight: bold;
+         text-decoration: underline;
+      }
+   }
+} 
