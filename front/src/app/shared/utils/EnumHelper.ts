@@ -19,4 +19,24 @@ export class EnumHelper {
     }));
   }
 
+   /**
+   * Trouver une clé à partir d'une valeur
+   */
+  static getKeyByValue<T extends { [key: string]: string | number }>(
+    enumObj: T,
+    valueToFind: string | number
+  ): string | undefined {
+    return this.getKeys(enumObj).find(key => enumObj[key] === valueToFind);
+  }
+
+  /**
+   * Trouver une valeur à partir d'une clé (utile si enumObj est partiellement dynamique)
+   */
+  static getValueByKey<T extends { [key: string]: string | number }>(
+    enumObj: T,
+    keyToFind: string
+  ): string | number | undefined {
+    return enumObj[keyToFind];
+  }
+
 }

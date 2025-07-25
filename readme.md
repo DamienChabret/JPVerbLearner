@@ -27,7 +27,7 @@ ng serve
 
 # API 
 Lancer l'api : 
-dotnet run
+dotnet run (depuis wsl)
 
 Générer classe selon DB
 
@@ -42,3 +42,7 @@ Pour la connexion, utilisé : Keycloak
 - Système de trad
 
 Faire Pareil avec les adjectifs
+
+Rajouter condition de form pour que ça ne soit pas vide
+
+Rajouter système de notifications

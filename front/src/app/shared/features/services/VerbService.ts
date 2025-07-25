@@ -1,5 +1,6 @@
 import { environment } from "@environments/environment"
 import { JLPTLevelEnum } from "@models/JlptLevelEnum";
+import { FormValues } from "@models/ValueFormInterface";
 import { VerbGroupEnum } from "@models/VerbGroupeEnum";
 import { VerbModel } from "@models/VerbModel"
 
@@ -25,8 +26,6 @@ function mapVerbLevel(apiValue: string): JLPTLevelEnum {
   return verbLevelMap[apiValue];
 }
 
-
-
 export class VerbService {
    
    async getVerbs(): Promise<VerbModel[]> {
@@ -41,6 +40,51 @@ export class VerbService {
          }));
       })
    }
+
+   async getVerbsByFilter(formValues: FormValues): Promise<VerbModel[]> {
+      // Récupérer les clés sélectionnées (groupes cochés)
+      const selectedGroups = Object.entries(formValues.groupValue)
+         .filter(([_, checked]) => checked)
+         .map(([key]) => key); // Clés déjà mappées (ex: GROUPE_1)
+
+      const selectedLevels = Object.entries(formValues.levelValue)
+         .filter(([_, checked]) => checked)
+         .map(([key]) => key); // Clés déjà mappées (ex: JPLT_N5)
+
+      const selectedPoliteness = Object.entries(formValues.politessValue)
+         .find(([_, checked]) => checked)?.[0];
+
+      const selectedForm = Object.entries(formValues.formValue)
+         .find(([_, checked]) => checked)?.[0];
+
+      const selectedRevision = Object.entries(formValues.revisionsValue)
+         .find(([_, checked]) => checked)?.[0];
+
+      // Construction des query params manuellement
+      const queryParams = new URLSearchParams();
+
+      selectedGroups.forEach(g => queryParams.append("Group", g));
+      selectedLevels.forEach(l => queryParams.append("Level", l));
+      if (selectedPoliteness) queryParams.append("Politeness", selectedPoliteness);
+      if (selectedForm) queryParams.append("Form", selectedForm);
+      if (selectedRevision) queryParams.append("Revision", selectedRevision);
+
+      const url = `${environment.apiUrl}/verbs?${queryParams.toString()}`;
+
+      return fetch(url)
+         .then(res => {
+            if (!res.ok) throw new Error("API error");
+            return res.json();
+         })
+         .then((res: VerbModel[]) => {
+            return res.map(verb => ({
+            ...verb,
+            verbGroup: mapVerbGroup(verb.verbGroup),
+            jlptLevel: mapVerbLevel(verb.jlptLevel)
+            }));
+      });
+   }
+
 
    async getVerb(id : number): Promise<VerbModel> {
        return fetch(environment.apiUrl + `/verbs/${id}`)

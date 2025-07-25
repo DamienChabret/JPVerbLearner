@@ -1,41 +1,61 @@
 <div class="quizz-form">
+  <button id="closePopup" (click)="closeQuizzForm()"> &times; </button>
+  <h1>Lancer un Quizz</h1>
   <form>
+
     <!-- Groupes -->
-    <label>Groupe à voir :</label>
     <div class="group-selections">
-      <div *ngFor="let item of listGroupEnums">
-        <label> <input class="verbGroup-input" type="radio" [value]="item.key" /> {{ item.value }} </label>
-      </div>
+      <label>Groupe à voir :</label>
+      <label *ngFor="let key of objectKeys(formValues.groupValue)">
+        <mat-checkbox class="verbGroup-input" [(ngModel)]="formValues.groupValue[key]" [name]="'group-' + key">
+          {{ key }}
+        </mat-checkbox>
+      </label>
     </div>
 
     <!-- Levels -->
-    <label>Levels à voir :</label>
     <div class="levels-selections">
-      <div *ngFor="let item of listLevelEnums">
-        <label> <input class="verbLevel-input" type="radio" [value]="item.key" /> {{ item.value }} </label>
-      </div>
+      <label>Levels à voir :</label>
+      <label *ngFor="let key of objectKeys(formValues.levelValue)">
+        <mat-checkbox class="verbLevel-input" [(ngModel)]="formValues.levelValue[key]" [name]="'level-' + key">
+          {{ key }}
+        </mat-checkbox>
+      </label>
     </div>
 
     <!-- Niveau de politesse -->
-    <label>Niveau de politesse</label>
     <div class="politeness-selections">
-      <label> <input class="verbPoliteness-input" type="radio" value="polite" /> Polie </label>
-      <label> <input class="verbPoliteness-input" type="radio" value="neutral" /> Neutre </label>
+      <label>Niveau de politesse :</label>
+      <label *ngFor="let key of objectKeys(formValues.politessValue)">
+        <mat-checkbox class="verbPoliteness-input" [(ngModel)]="formValues.politessValue[key]" [name]="'politeness-' + key">
+          {{ key }}
+        </mat-checkbox>
+      </label>
     </div>
 
     <!-- Formes à voir -->
     <div class="form-selections">
       <p>Choisissez une forme :</p>
-      <label><input class="verbForm-input" type="radio" value="present" /> Forme Présent</label>
-      <label><input class="verbForm-input" type="radio" value="past" /> Forme Passé</label>
-      <label><input class="verbForm-input" type="radio" value="basic" /> Forme Basique</label>
-      <label><input class="verbForm-input" type="radio" value="te" /> Forme "te"</label>
-      <label><input class="verbForm-input" type="radio" value="potential" /> Forme potentielle</label>
-      <label><input class="verbForm-input" type="radio" value="volitive" /> Forme volitive</label>
-      <label><input class="verbForm-input" type="radio" value="passive" /> Forme passive</label>
-      <label><input class="verbForm-input" type="radio" value="causative" /> Forme causative</label>
-      <label><input class="verbForm-input" type="radio" value="conditional" /> Forme conditionnelle (ば, たら, etc.)</label>
-      <label><input class="verbForm-input" type="radio" value="progressive" /> Forme en cours (〜ている)</label>
+      <label *ngFor="let key of objectKeys(formValues.formValue)">
+        <mat-checkbox class="verbForm-input" [(ngModel)]="formValues.formValue[key]" [name]="'form-' + key">
+          {{ key }}
+        </mat-checkbox>
+      </label>
     </div>
+
+    <br>
+
+    <!-- Style de révisions -->
+    <div class="form-revisions">
+      <p>Style de révisions :</p>
+      <label *ngFor="let key of objectKeys(formValues.revisionsValue)">
+        <mat-checkbox class="verbRevision-input" [(ngModel)]="formValues.revisionsValue[key]" [name]="'revision-' + key">
+          {{ key }}
+        </mat-checkbox>
+      </label>
+    </div>
+
   </form>
+
+  <button type="button" (click)="startQuizz()">Lancer</button>
 </div>

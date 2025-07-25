@@ -1,6 +1,33 @@
 .quizz-form {
+   position: relative;
+
+   #closePopup {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: none;
+      border: none;
+      font-size: 30px;
+      color: white;
+
+      &:hover {
+         cursor: pointer;
+         opacity: 0.5;
+      }
+   }
+
+   h1 {
+      text-align: center
+   }
+
+   button {
+      margin-left: auto;
+      margin-right: auto;
+      vertical-align : middle
+   }
+
    background-color: hsl(236, 32%, 26%);
    height: 60%;
-   width: 60%;
+   width: 600px;
    color: white;
 }

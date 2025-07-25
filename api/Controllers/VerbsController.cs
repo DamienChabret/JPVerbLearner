@@ -17,9 +17,27 @@ namespace api.Controllers
       }
 
       [HttpGet]
-      public async Task<ActionResult<List<Verb>>> GetAll()
+      public async Task<ActionResult<List<Verb>>> GetAll(
+         [FromQuery] VerbFilterParams verbParams
+      )
       {
-         var verbs = await verbService.GetAll();
+         var json = System.Text.Json.JsonSerializer.Serialize(verbParams, new System.Text.Json.JsonSerializerOptions
+         {
+            WriteIndented = true
+         });
+
+         Console.WriteLine(json);
+
+         List<Verb> verbs = new List<Verb>();
+         if (verbParams != null)
+         {
+            verbs = await verbService.GetAllByFilters(verbParams);
+         }
+         else
+         {
+            verbs = await verbService.GetAll();
+
+         }
 
          if (verbs == null || verbs.Count == 0)
             return NoContent();

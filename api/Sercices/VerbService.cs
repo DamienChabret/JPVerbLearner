@@ -46,6 +46,16 @@ namespace api.services
          return results;
       }
 
+      public async Task<List<Verb>> GetAllByFilters(VerbFilterParams verbFilterParams)
+      {
+         List<Verb> results = new List<Verb>();
+         results = await this.context.Verbs
+            //.Where(t => t.VerbGroup == verbFilterParams.Group)
+            //.Where(t => t.JlptLevel == verbFilterParams.Level)
+            .ToListAsync();
+         return results;
+      }
+
       public void Update(Verb entity)
       {
          throw new NotImplementedException();

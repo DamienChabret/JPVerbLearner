@@ -5,5 +5,5 @@
 </div>
 
 <div class="quizz-form" *ngIf="displayQuizzForm">
-  <app-QuizzForm />
+  <app-QuizzForm (closeQuizzFormEvent)="hideQuizzForm()"/>
 </div>

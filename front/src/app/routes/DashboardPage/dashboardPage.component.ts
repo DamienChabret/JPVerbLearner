@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardPageComponent implements OnInit {
 
-  displayQuizzForm: boolean = false;
+  displayQuizzForm: boolean = true;
   quizzType: string = ""; // quizz ou train
 
   constructor() { }
@@ -23,6 +23,11 @@ export class DashboardPageComponent implements OnInit {
   showQuizzForm(quizzType : string) {
     console.log(quizzType);
     this.quizzType = quizzType;
+    this.displayQuizzForm = !this.displayQuizzForm;
+  }
+
+  hideQuizzForm() {
+    this.quizzType = "";
     this.displayQuizzForm = !this.displayQuizzForm;
   }
 
