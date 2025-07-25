@@ -11,10 +11,9 @@
 
   /* ✅ Propriétés de centrage */
   display: flex;
-  align-items: center;       /* centrer verticalement */
-  justify-content: center;   /* centrer horizontalement */
+  align-items: center; /* centrer verticalement */
+  justify-content: center; /* centrer horizontalement */
 }
-
 
 nav {
   margin: 0;

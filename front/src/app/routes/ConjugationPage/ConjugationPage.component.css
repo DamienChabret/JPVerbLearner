@@ -18,14 +18,14 @@
 }
 
 .bold-span {
-   font-weight: bold;
+  font-weight: bold;
 }
 
 .terminaison {
-   color: red;
+  color: red;
 }
 
 h3 {
-   color: hsl(236, 32%, 26%);
-   font-weight: bold;
+  color: hsl(236, 32%, 26%);
+  font-weight: bold;
 }
