@@ -256,7 +256,7 @@ export class VerbModel {
     desireRomaji = '',
     honorificRomaji = '',
     humbleRomaji = '',
-    hypotheticalRomaji = '',
+    hypotheticalRomaji = ''
   ) {
     this.id = id;
     this.translationFr = trad ?? '';

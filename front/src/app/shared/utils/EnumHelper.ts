@@ -1,12 +1,12 @@
 export class EnumHelper {
   static getKeys<T extends Record<string, string | number>>(
-    enumObj: T,
+    enumObj: T
   ): string[] {
     return Object.keys(enumObj).filter((key) => isNaN(Number(key)));
   }
 
   static getValues<T extends Record<string, string | number>>(
-    enumObj: T,
+    enumObj: T
   ): (string | number)[] {
     return this.getKeys(enumObj).map((key) => enumObj[key]);
   }
@@ -17,7 +17,7 @@ export class EnumHelper {
    * @returns
    */
   static getEntries<T extends Record<string, string | number>>(
-    enumObj: T,
+    enumObj: T
   ): { key: string; value: string | number }[] {
     return this.getKeys(enumObj).map((key) => ({
       key,
@@ -30,7 +30,7 @@ export class EnumHelper {
    */
   static getKeyByValue<T extends Record<string, string | number>>(
     enumObj: T,
-    valueToFind: string | number,
+    valueToFind: string | number
   ): string | undefined {
     return this.getKeys(enumObj).find((key) => enumObj[key] === valueToFind);
   }
@@ -40,7 +40,7 @@ export class EnumHelper {
    */
   static getValueByKey<T extends Record<string, string | number>>(
     enumObj: T,
-    keyToFind: string,
+    keyToFind: string
   ): string | number | undefined {
     return enumObj[keyToFind];
   }

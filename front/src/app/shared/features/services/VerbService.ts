@@ -51,15 +51,15 @@ export class VerbService {
       .map(([key]) => key); // Clés déjà mappées (ex: JPLT_N5)
 
     const selectedPoliteness = Object.entries(formValues.politessValue).find(
-      ([_, checked]) => checked,
+      ([_, checked]) => checked
     )?.[0];
 
     const selectedForm = Object.entries(formValues.formValue).find(
-      ([_, checked]) => checked,
+      ([_, checked]) => checked
     )?.[0];
 
     const selectedRevision = Object.entries(formValues.revisionsValue).find(
-      ([_, checked]) => checked,
+      ([_, checked]) => checked
     )?.[0];
 
     // Construction des query params manuellement

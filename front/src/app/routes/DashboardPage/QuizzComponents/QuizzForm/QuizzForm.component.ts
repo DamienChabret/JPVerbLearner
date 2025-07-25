@@ -7,6 +7,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormValues } from '@models/ValueFormInterface';
+import { NotificationService } from '@utils/NotificationManager';
+import { LocalStorageService } from '@utils/LocalStorageService';
 
 @Component({
   standalone: true,
@@ -24,7 +26,11 @@ export class QuizzFormComponent implements OnInit {
 
   @Output() closeQuizzFormEvent = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private notificationService: NotificationService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   ngOnInit() {
     this.listGroupEnums = EnumHelper.getEntries(VerbGroupEnum);
@@ -34,7 +40,7 @@ export class QuizzFormComponent implements OnInit {
         acc[item.value] = false;
         return acc;
       },
-      {},
+      {}
     );
 
     const levelValueInit = this.listLevelEnums
@@ -68,13 +74,58 @@ export class QuizzFormComponent implements OnInit {
         face: false,
       },
     };
+    let formValuesStorage = this.localStorageService.getData('formValues');
+    if (formValuesStorage != null) {
+      this.formValues = formValuesStorage;
+    }
   }
 
   closeQuizzForm() {
     this.closeQuizzFormEvent.emit();
   }
 
-  startQuizz() {
+  startQuizz(): any {
+    const mappedValue = this.mapValueForAPI();
+    if (!this.isFormValid(mappedValue)) {
+      this.notificationService.error(
+        'Au moins une valeure par catégorie doit-être choisi.'
+      );
+    } else {
+      this.localStorageService.saveData('formValues', this.formValues);
+      this.router.navigate(['/quizz'], {
+        queryParams: {
+          data: JSON.stringify(mappedValue),
+        },
+      });
+    }
+  }
+
+  isFormValid(mappedValue: any): boolean {
+    let isValid = true;
+    if ((mappedValue.groupValue as Array<string>).length < 1) {
+      isValid = false;
+    }
+
+    if ((mappedValue.levelValue as Array<String>).length < 1) {
+      isValid = false;
+    }
+
+    if ((mappedValue.politessValue as Array<String>).length < 1) {
+      isValid = false;
+    }
+
+    if ((mappedValue.revisionsValue as Array<String>).length < 1) {
+      isValid = false;
+    }
+
+    if ((mappedValue.formValue as Array<String>).length < 1) {
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  mapValueForAPI(): any {
     // Filtrer et garder uniquement les clés avec true
     const mappedGroupValue: string[] = [];
     for (const label in this.formValues.groupValue) {
@@ -94,7 +145,7 @@ export class QuizzFormComponent implements OnInit {
 
     // Pour le reste, filtrer aussi uniquement les clés à true
     const filterTrueKeys = (
-      obj: Record<string, boolean> | undefined,
+      obj: Record<string, boolean> | undefined
     ): string[] => {
       if (!obj) return [];
       return Object.keys(obj).filter((k) => obj[k]);
@@ -107,13 +158,6 @@ export class QuizzFormComponent implements OnInit {
       formValue: filterTrueKeys(this.formValues.formValue),
       revisionsValue: filterTrueKeys(this.formValues.revisionsValue),
     };
-
-    console.log(formValuesMapped);
-
-    this.router.navigate(['/quizz'], {
-      queryParams: {
-        data: JSON.stringify(formValuesMapped),
-      },
-    });
+    return formValuesMapped;
   }
 }
