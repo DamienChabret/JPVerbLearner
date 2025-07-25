@@ -11,24 +11,21 @@ import { CommonModule } from '@angular/common';
   imports: [MainButtonComponent, QuizzFormComponent, CommonModule],
 })
 export class DashboardPageComponent implements OnInit {
+  displayQuizzForm = true;
+  quizzType = ''; // quizz ou train
 
-  displayQuizzForm: boolean = true;
-  quizzType: string = ""; // quizz ou train
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  showQuizzForm(quizzType : string) {
+  showQuizzForm(quizzType: string) {
     console.log(quizzType);
     this.quizzType = quizzType;
     this.displayQuizzForm = !this.displayQuizzForm;
   }
 
   hideQuizzForm() {
-    this.quizzType = "";
+    this.quizzType = '';
     this.displayQuizzForm = !this.displayQuizzForm;
   }
-
 }

@@ -6,14 +6,13 @@ import { VerbService } from '@services/VerbService';
 @Component({
   selector: 'app-QuizzPage',
   templateUrl: './QuizzPage.component.html',
-  styleUrls: ['./QuizzPage.component.css']
+  styleUrls: ['./QuizzPage.component.css'],
 })
 export class QuizzPageComponent implements OnInit {
+  formValues!: FormValues;
+  private verbService!: VerbService;
 
-  formValues! : FormValues;
-  private verbService! : VerbService;
-  
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   async ngOnInit() {
     this.verbService = new VerbService();
@@ -21,10 +20,9 @@ export class QuizzPageComponent implements OnInit {
     if (raw) {
       this.formValues = JSON.parse(raw);
       console.log(this.formValues);
-    };
+    }
 
-    var verbs = await this.verbService.getVerbsByFilter(this.formValues);
+    const verbs = await this.verbService.getVerbsByFilter(this.formValues);
     console.log(verbs);
   }
-
 }

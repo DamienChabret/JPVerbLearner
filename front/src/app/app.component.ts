@@ -8,6 +8,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent],
-  template: `<app-header/> <router-outlet></router-outlet> <app-footer />`,
+  template: `<app-header /> <router-outlet></router-outlet> <app-footer />`,
 })
 export class AppComponent {}

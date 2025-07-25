@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-ConjugationPage',
   templateUrl: './ConjugationPage.component.html',
   styleUrls: ['./ConjugationPage.component.css'],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class ConjugationPageComponent implements OnInit {
   activeChoice: 'verbs' | 'adjectives' | '' = 'verbs';

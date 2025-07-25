@@ -11,15 +11,15 @@ import { VerbService } from '@services/VerbService';
   selector: 'app-verbs',
   templateUrl: './verbsPage.component.html',
   styleUrls: ['./verbsPage.component.css'],
-  imports: [VerbCardComponent, CommonModule]
+  imports: [VerbCardComponent, CommonModule],
 })
 export class VerbsPageComponent implements OnInit {
   verbList: VerbModel[] = [];
 
-  constructor() { }
+  constructor() {}
 
   async ngOnInit() {
     this.verbList = await new VerbService().getVerbs();
-    console.log(this.verbList)
+    console.log(this.verbList);
   }
 }

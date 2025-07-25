@@ -1,13 +1,16 @@
 <div class="quizz-form">
-  <button id="closePopup" (click)="closeQuizzForm()"> &times; </button>
+  <button id="closePopup" (click)="closeQuizzForm()">&times;</button>
   <h1>Lancer un Quizz</h1>
   <form>
-
     <!-- Groupes -->
     <div class="group-selections">
       <label>Groupe à voir :</label>
       <label *ngFor="let key of objectKeys(formValues.groupValue)">
-        <mat-checkbox class="verbGroup-input" [(ngModel)]="formValues.groupValue[key]" [name]="'group-' + key">
+        <mat-checkbox
+          class="verbGroup-input"
+          [(ngModel)]="formValues.groupValue[key]"
+          [name]="'group-' + key"
+        >
           {{ key }}
         </mat-checkbox>
       </label>
@@ -17,7 +20,11 @@
     <div class="levels-selections">
       <label>Levels à voir :</label>
       <label *ngFor="let key of objectKeys(formValues.levelValue)">
-        <mat-checkbox class="verbLevel-input" [(ngModel)]="formValues.levelValue[key]" [name]="'level-' + key">
+        <mat-checkbox
+          class="verbLevel-input"
+          [(ngModel)]="formValues.levelValue[key]"
+          [name]="'level-' + key"
+        >
           {{ key }}
         </mat-checkbox>
       </label>
@@ -27,7 +34,11 @@
     <div class="politeness-selections">
       <label>Niveau de politesse :</label>
       <label *ngFor="let key of objectKeys(formValues.politessValue)">
-        <mat-checkbox class="verbPoliteness-input" [(ngModel)]="formValues.politessValue[key]" [name]="'politeness-' + key">
+        <mat-checkbox
+          class="verbPoliteness-input"
+          [(ngModel)]="formValues.politessValue[key]"
+          [name]="'politeness-' + key"
+        >
           {{ key }}
         </mat-checkbox>
       </label>
@@ -37,24 +48,31 @@
     <div class="form-selections">
       <p>Choisissez une forme :</p>
       <label *ngFor="let key of objectKeys(formValues.formValue)">
-        <mat-checkbox class="verbForm-input" [(ngModel)]="formValues.formValue[key]" [name]="'form-' + key">
+        <mat-checkbox
+          class="verbForm-input"
+          [(ngModel)]="formValues.formValue[key]"
+          [name]="'form-' + key"
+        >
           {{ key }}
         </mat-checkbox>
       </label>
     </div>
 
-    <br>
+    <br />
 
     <!-- Style de révisions -->
     <div class="form-revisions">
       <p>Style de révisions :</p>
       <label *ngFor="let key of objectKeys(formValues.revisionsValue)">
-        <mat-checkbox class="verbRevision-input" [(ngModel)]="formValues.revisionsValue[key]" [name]="'revision-' + key">
+        <mat-checkbox
+          class="verbRevision-input"
+          [(ngModel)]="formValues.revisionsValue[key]"
+          [name]="'revision-' + key"
+        >
           {{ key }}
         </mat-checkbox>
       </label>
     </div>
-
   </form>
 
   <button type="button" (click)="startQuizz()">Lancer</button>

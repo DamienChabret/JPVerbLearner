@@ -1,7 +1,7 @@
 export interface FormValues {
-  groupValue: { [key: string]: any };
-  levelValue: { [key: string]: any };
-  politessValue: { [key: string]: any };
-  formValue: { [key: string]: any };
-  revisionsValue: { [key: string]: any };
+  groupValue: Record<string, any>;
+  levelValue: Record<string, any>;
+  politessValue: Record<string, any>;
+  formValue: Record<string, any>;
+  revisionsValue: Record<string, any>;
 }

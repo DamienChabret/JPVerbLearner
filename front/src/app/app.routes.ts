@@ -8,11 +8,11 @@ import { AdjectivePageComponent } from '@routes/AdjectivePage/AdjectivePage.comp
 import { QuizzPageComponent } from '@routes/QuizzPage/QuizzPage.component';
 
 export const routes: Routes = [
-   { path: '', component: DashboardPageComponent },
-   { path: 'verbs', component: VerbsPageComponent },
-   { path: 'verbs/:verb', component: VerbPageComponent},
-   { path: 'adjectives', component: AdjectivesPageComponent},
-   { path: 'adjectives/:adjective', component: AdjectivePageComponent},
-   { path: 'conjugation', component: ConjugationPageComponent},
-   { path: 'quizz', component: QuizzPageComponent }
+  { path: '', component: DashboardPageComponent },
+  { path: 'verbs', component: VerbsPageComponent },
+  { path: 'verbs/:verb', component: VerbPageComponent },
+  { path: 'adjectives', component: AdjectivesPageComponent },
+  { path: 'adjectives/:adjective', component: AdjectivePageComponent },
+  { path: 'conjugation', component: ConjugationPageComponent },
+  { path: 'quizz', component: QuizzPageComponent },
 ];

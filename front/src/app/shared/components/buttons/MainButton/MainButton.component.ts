@@ -4,19 +4,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   standalone: true,
   selector: 'app-MainButton',
   templateUrl: './MainButton.component.html',
-  styleUrls: ['./MainButton.component.css']
+  styleUrls: ['./MainButton.component.css'],
 })
 export class MainButtonComponent implements OnInit {
-  @Input() text = "";
+  @Input() text = '';
   @Output() isClicked = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   sendEvent() {
     this.isClicked.emit();
   }
-
 }

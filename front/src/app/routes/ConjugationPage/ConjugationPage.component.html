@@ -1,55 +1,61 @@
 <div class="content">
-
   <div class="choices-content">
-    <button [class.active]="activeChoice === 'verbs'" (click)="setActive('verbs')"> Verbes </button>
-    <button [class.active]="activeChoice === 'adjectives'" (click)="setActive('adjectives')"> Adjectives </button>
+    <button
+      [class.active]="activeChoice === 'verbs'"
+      (click)="setActive('verbs')"
+    >
+      Verbes
+    </button>
+    <button
+      [class.active]="activeChoice === 'adjectives'"
+      (click)="setActive('adjectives')"
+    >
+      Adjectives
+    </button>
   </div>
 
   <div class="conjugation-verbs" *ngIf="activeChoice === 'verbs'">
-    <h2> Conjugaison des verbes </h2>
-    <p> Les verbes se composent en 3 Groupes </p>
+    <h2>Conjugaison des verbes</h2>
+    <p>Les verbes se composent en 3 Groupes</p>
     <ul>
-      <li> Groupe 1 - Godan </li>
-      <li> Groupe 2 - ...</li>
-      <li> Groupe 3 - Irrégulier </li>
+      <li>Groupe 1 - Godan</li>
+      <li>Groupe 2 - ...</li>
+      <li>Groupe 3 - Irrégulier</li>
     </ul>
 
-    <h3> Groupe 1 </h3>
-    <p> Les infinitifs des verbes se finissent toujours en -u. Conjugués, finisnet toujours en -i </p>
-    <ul> 
-      <li> う -> <span class="terminaison"> い </span> ます </li>
-      <li> く -> <span class="terminaison"> き </span> ます </li>
-      <li> ぐ -> <span class="terminaison"> ぎ </span> ます </li>
-      <li> す -> <span class="terminaison"> し </span> ます </li>
-      <li> つ -> <span class="terminaison"> ち </span> ます </li>
-      <li> ぬ -> <span class="terminaison"> に </span> ます </li>
-      <li> ぶ -> <span class="terminaison"> び </span> ます </li>
-      <li> る -> <span class="terminaison"> り </span> ます </li>
-      <li> ぬ -> <span class="terminaison"> に </span> ます </li>
+    <h3>Groupe 1</h3>
+    <p>
+      Les infinitifs des verbes se finissent toujours en -u. Conjugués, finisnet
+      toujours en -i
+    </p>
+    <ul>
+      <li>う -> <span class="terminaison"> い </span> ます</li>
+      <li>く -> <span class="terminaison"> き </span> ます</li>
+      <li>ぐ -> <span class="terminaison"> ぎ </span> ます</li>
+      <li>す -> <span class="terminaison"> し </span> ます</li>
+      <li>つ -> <span class="terminaison"> ち </span> ます</li>
+      <li>ぬ -> <span class="terminaison"> に </span> ます</li>
+      <li>ぶ -> <span class="terminaison"> び </span> ます</li>
+      <li>る -> <span class="terminaison"> り </span> ます</li>
+      <li>ぬ -> <span class="terminaison"> に </span> ます</li>
     </ul>
 
-    <h3> Groupe 2 </h3>
-    Terminent par -ru. Un verbe fait parti du deuxième groupe si la -ru est précédé par la voyelle -i ou -e. On enlève alors -ru et ajoute -masu.
+    <h3>Groupe 2</h3>
+    Terminent par -ru. Un verbe fait parti du deuxième groupe si la -ru est
+    précédé par la voyelle -i ou -e. On enlève alors -ru et ajoute -masu.
+    Exemple : - taberu -> tabemasu - okiru -> Okimasu
 
-    Exemple : 
-    - taberu -> tabemasu
-    - okiru -> Okimasu 
-
-
-    <h3> Groupe 3 </h3>
-    Présence que de quelques verbes qui sont : 
-    - Aru
-    - Kuru
+    <h3>Groupe 3</h3>
+    Présence que de quelques verbes qui sont : - Aru - Kuru
   </div>
 
   <div class="conjugation-adjectives" *ngIf="activeChoice === 'adjectives'">
-    <h2> Conjugaison des adjectifs</h2>
+    <h2>Conjugaison des adjectifs</h2>
 
-    <h3> Adjectives en -na </h3>
-    <p> </p>
+    <h3>Adjectives en -na</h3>
+    <p></p>
 
-    <h3> Adjectives en -i </h3>
-    <p> </p>
+    <h3>Adjectives en -i</h3>
+    <p></p>
   </div>
-
 </div>

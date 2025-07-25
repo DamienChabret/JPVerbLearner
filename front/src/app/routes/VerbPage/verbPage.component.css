@@ -1,7 +1,6 @@
-.trait
-{
-width:764px;
-border:1px solid black;
+.trait {
+  width: 764px;
+  border: 1px solid black;
 }
 
 table {
@@ -16,7 +15,8 @@ thead {
   color: white;
 }
 
-th, td {
+th,
+td {
   padding: 12px 15px;
   border: 1px solid hsla(236, 32%, 26%, 0.744);
   text-align: left;
@@ -31,6 +31,6 @@ tbody tr:hover {
 }
 
 th[scope="row"] {
-  background-color: hsl(236, 33%, 70%);;
+  background-color: hsl(236, 33%, 70%);
   font-weight: bold;
 }

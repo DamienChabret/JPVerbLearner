@@ -8,18 +8,16 @@ import { Router } from '@angular/router';
   standalone: true,
   selector: 'app-verb',
   templateUrl: './verbCard.component.html',
-  styleUrls: ['./verbCard.component.css']
+  styleUrls: ['./verbCard.component.css'],
 })
 export class VerbCardComponent implements OnInit {
-  @Input() verb_model! : VerbModel; 
+  @Input() verb_model!: VerbModel;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   navigateOnVerbPage() {
     this.router.navigate(['/verbs/', this.verb_model.id]);
   }
-
 }

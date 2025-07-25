@@ -1,12 +1,13 @@
 <div class="content" *ngIf="verb">
-
   <div class="verb-category">
     <p class="JPLT-level">{{ verb.jlptLevel }}</p>
     <p class="verb-group">{{ verb.verbGroup }}</p>
   </div>
 
   <div>
-    <p>{{ verb.baseKanji }} ({{ verb.baseHiragana }}) - {{ verb.translationFr }}</p>
+    <p>
+      {{ verb.baseKanji }} ({{ verb.baseHiragana }}) - {{ verb.translationFr }}
+    </p>
   </div>
 
   <div class="trait"></div>
@@ -16,7 +17,10 @@
   <table>
     <thead>
       <tr>
-        <th>Forme</th><th>Kanji</th><th>Hiragana</th><th>Romaji</th>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
       </tr>
     </thead>
     <tbody>
@@ -35,13 +39,15 @@
     </tbody>
   </table>
 
-
   <!-- Passé -->
   <h3>Passé</h3>
   <table>
     <thead>
       <tr>
-        <th>Forme</th><th>Kanji</th><th>Hiragana</th><th>Romaji</th>
+        <th>Forme</th>
+        <th>Kanji</th>
+        <th>Hiragana</th>
+        <th>Romaji</th>
       </tr>
     </thead>
     <tbody>
@@ -60,7 +66,6 @@
     </tbody>
   </table>
 
-
   <!-- Progressif -->
   <h3>Progressif (forme en -ている)</h3>
   <table>
@@ -76,7 +81,9 @@
       <tr>
         <td>Positive</td>
         <td>{{ verb.progressiveKanji }}</td>
-        <td>{{ verb.progressiveHiragana }}</td><td>{{ verb.progressiveRomaji }}</td></tr>
+        <td>{{ verb.progressiveHiragana }}</td>
+        <td>{{ verb.progressiveRomaji }}</td>
+      </tr>
       <tr>
         <td>Négative</td>
         <td>{{ verb.negativeProgressiveKanji }}</td>
@@ -91,9 +98,6 @@
       </tr>
     </tbody>
   </table>
-
-
-
 
   <!-- Forme impérative -->
   <h3>Impérative</h3>
@@ -143,7 +147,6 @@
     </tbody>
   </table>
 
-
   <!-- Forme conditionnelle -->
   <h3>Conditionnelle (si...)</h3>
   <table>
@@ -171,9 +174,6 @@
     </tbody>
   </table>
 
-
-
-
   <!-- Forme causative -->
   <h3>Causative (faire faire)</h3>
   <table>
@@ -194,7 +194,6 @@
       </tr>
     </tbody>
   </table>
-
 
   <!-- Forme passive -->
   <h3>Passive (subir une action)</h3>

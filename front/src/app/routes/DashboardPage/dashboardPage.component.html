@@ -1,9 +1,11 @@
 <div class="content">
-  <h1> Japanese Verbs Quizz </h1>
-  <app-MainButton text="Lancer le quizz" (isClicked)="showQuizzForm('quizz')"/> <!-- Entrainement fini qui voit tous les verbes -->
-  <app-MainButton text="Entrainement" (isClicked)="showQuizzForm('train')"/> <!-- Entrainement infini -->
+  <h1>Japanese Verbs Quizz</h1>
+  <app-MainButton text="Lancer le quizz" (isClicked)="showQuizzForm('quizz')" />
+  <!-- Entrainement fini qui voit tous les verbes -->
+  <app-MainButton text="Entrainement" (isClicked)="showQuizzForm('train')" />
+  <!-- Entrainement infini -->
 </div>
 
 <div class="quizz-form" *ngIf="displayQuizzForm">
-  <app-QuizzForm (closeQuizzFormEvent)="hideQuizzForm()"/>
+  <app-QuizzForm (closeQuizzFormEvent)="hideQuizzForm()" />
 </div>
