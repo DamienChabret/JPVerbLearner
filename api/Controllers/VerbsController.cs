@@ -29,7 +29,7 @@ namespace api.Controllers
          Console.WriteLine(json);
 
          List<Verb> verbs = new List<Verb>();
-         if (verbParams != null)
+         if (!verbParams.EqualNull())
          {
             verbs = await verbService.GetAllByFilters(verbParams);
          }
@@ -38,9 +38,6 @@ namespace api.Controllers
             verbs = await verbService.GetAll();
 
          }
-
-         if (verbs == null || verbs.Count == 0)
-            return NoContent();
 
          return Ok(verbs);
       }

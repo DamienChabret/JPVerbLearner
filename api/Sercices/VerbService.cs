@@ -48,13 +48,15 @@ namespace api.services
 
       public async Task<List<Verb>> GetAllByFilters(VerbFilterParams verbFilterParams)
       {
-         List<Verb> results = new List<Verb>();
-         results = await this.context.Verbs
-            //.Where(t => t.VerbGroup == verbFilterParams.Group)
-            //.Where(t => t.JlptLevel == verbFilterParams.Level)
+         var results = await this.context.Verbs
+            .Where(t => verbFilterParams.GroupValue.Contains(t.VerbGroup))
+            .Where(t => verbFilterParams.LevelValue.Contains(t.JlptLevel))
             .ToListAsync();
+
+
          return results;
       }
+
 
       public void Update(Verb entity)
       {

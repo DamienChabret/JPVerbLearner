@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { FormValues } from '@models/ValueFormInterface';
 import { NotificationService } from '@utils/NotificationManager';
 import { LocalStorageService } from '@utils/LocalStorageService';
+import { VerbService } from '@services/VerbService';
 
 @Component({
   standalone: true,
@@ -29,7 +30,8 @@ export class QuizzFormComponent implements OnInit {
   constructor(
     private router: Router,
     private notificationService: NotificationService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private verbService: VerbService
   ) {}
 
   ngOnInit() {
@@ -84,80 +86,50 @@ export class QuizzFormComponent implements OnInit {
     this.closeQuizzFormEvent.emit();
   }
 
-  startQuizz(): any {
-    const mappedValue = this.mapValueForAPI();
-    if (!this.isFormValid(mappedValue)) {
+  startQuizz() {
+    if (!this.isFormValid()) {
       this.notificationService.error(
         'Au moins une valeure par catégorie doit-être choisi.'
       );
     } else {
       this.localStorageService.saveData('formValues', this.formValues);
+      
       this.router.navigate(['/quizz'], {
         queryParams: {
-          data: JSON.stringify(mappedValue),
+          formValues: JSON.stringify(this.formValues)
         },
       });
     }
   }
 
-  isFormValid(mappedValue: any): boolean {
+  isFormValid(): boolean {
     let isValid = true;
-    if ((mappedValue.groupValue as Array<string>).length < 1) {
+
+    // Vérifie qu'au moins une valeur est true dans groupValue
+    if (!Object.values(this.formValues.groupValue).some(value => value)) {
       isValid = false;
     }
 
-    if ((mappedValue.levelValue as Array<String>).length < 1) {
+    // Vérifie qu'au moins une valeur est true dans levelValue
+    if (!Object.values(this.formValues.levelValue).some(value => value)) {
       isValid = false;
     }
 
-    if ((mappedValue.politessValue as Array<String>).length < 1) {
+    // Vérifie qu'au moins une valeur est true dans politessValue
+    if (!Object.values(this.formValues.politessValue).some(value => value)) {
       isValid = false;
     }
 
-    if ((mappedValue.revisionsValue as Array<String>).length < 1) {
+    // Vérifie qu'au moins une valeur est true dans formValue
+    if (!Object.values(this.formValues.formValue).some(value => value)) {
       isValid = false;
     }
 
-    if ((mappedValue.formValue as Array<String>).length < 1) {
+    // Vérifie qu'au moins une valeur est true dans revisionsValue
+    if (!Object.values(this.formValues.revisionsValue).some(value => value)) {
       isValid = false;
     }
 
     return isValid;
-  }
-
-  mapValueForAPI(): any {
-    // Filtrer et garder uniquement les clés avec true
-    const mappedGroupValue: string[] = [];
-    for (const label in this.formValues.groupValue) {
-      const key = EnumHelper.getKeyByValue(VerbGroupEnum, label);
-      if (key && this.formValues.groupValue[label]) {
-        mappedGroupValue.push(key);
-      }
-    }
-
-    const mappedLevelValue: string[] = [];
-    for (const label in this.formValues.levelValue) {
-      const key = EnumHelper.getKeyByValue(JLPTLevelEnum, label);
-      if (key && this.formValues.levelValue[label]) {
-        mappedLevelValue.push(key);
-      }
-    }
-
-    // Pour le reste, filtrer aussi uniquement les clés à true
-    const filterTrueKeys = (
-      obj: Record<string, boolean> | undefined
-    ): string[] => {
-      if (!obj) return [];
-      return Object.keys(obj).filter((k) => obj[k]);
-    };
-
-    const formValuesMapped = {
-      groupValue: mappedGroupValue, // liste de string des groupes sélectionnés
-      levelValue: mappedLevelValue, // liste de string des niveaux sélectionnés
-      politessValue: filterTrueKeys(this.formValues.politessValue),
-      formValue: filterTrueKeys(this.formValues.formValue),
-      revisionsValue: filterTrueKeys(this.formValues.revisionsValue),
-    };
-    return formValuesMapped;
   }
 }

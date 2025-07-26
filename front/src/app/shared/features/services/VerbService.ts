@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { JLPTLevelEnum } from '@models/JlptLevelEnum';
 import { FormValues } from '@models/ValueFormInterface';
@@ -11,11 +12,11 @@ const verbGroupMap: Record<string, VerbGroupEnum> = {
 };
 
 const verbLevelMap: Record<string, JLPTLevelEnum> = {
-  JLPT_N1: JLPTLevelEnum.JPLT_N1,
-  JLPT_N2: JLPTLevelEnum.JPLT_N2,
-  JLPT_N3: JLPTLevelEnum.JPLT_N3,
-  JLPT_N4: JLPTLevelEnum.JPLT_N4,
-  JLPT_N5: JLPTLevelEnum.JPLT_N5,
+  JLPT_N1: JLPTLevelEnum.JLPT_N1,
+  JLPT_N2: JLPTLevelEnum.JLPT_N2,
+  JLPT_N3: JLPTLevelEnum.JLPT_N3,
+  JLPT_N4: JLPTLevelEnum.JLPT_N4,
+  JLPT_N5: JLPTLevelEnum.JLPT_N5,
 };
 
 function mapVerbGroup(apiValue: string): VerbGroupEnum {
@@ -26,6 +27,7 @@ function mapVerbLevel(apiValue: string): JLPTLevelEnum {
   return verbLevelMap[apiValue];
 }
 
+@Injectable({ providedIn: 'root' })
 export class VerbService {
   async getVerbs(): Promise<VerbModel[]> {
     return fetch(environment.apiUrl + '/verbs')
@@ -41,52 +43,29 @@ export class VerbService {
   }
 
   async getVerbsByFilter(formValues: FormValues): Promise<VerbModel[]> {
-    // Récupérer les clés sélectionnées (groupes cochés)
-    const selectedGroups = Object.entries(formValues.groupValue)
-      .filter(([_, checked]) => checked)
-      .map(([key]) => key); // Clés déjà mappées (ex: GROUPE_1)
-
-    const selectedLevels = Object.entries(formValues.levelValue)
-      .filter(([_, checked]) => checked)
-      .map(([key]) => key); // Clés déjà mappées (ex: JPLT_N5)
-
-    const selectedPoliteness = Object.entries(formValues.politessValue).find(
-      ([_, checked]) => checked
-    )?.[0];
-
-    const selectedForm = Object.entries(formValues.formValue).find(
-      ([_, checked]) => checked
-    )?.[0];
-
-    const selectedRevision = Object.entries(formValues.revisionsValue).find(
-      ([_, checked]) => checked
-    )?.[0];
-
     // Construction des query params manuellement
     const queryParams = new URLSearchParams();
-
-    selectedGroups.forEach((g) => queryParams.append('Group', g));
-    selectedLevels.forEach((l) => queryParams.append('Level', l));
-    if (selectedPoliteness)
-      queryParams.append('Politeness', selectedPoliteness);
-    if (selectedForm) queryParams.append('Form', selectedForm);
-    if (selectedRevision) queryParams.append('Revision', selectedRevision);
-
+    (formValues.groupValue as Array<string>).forEach((g) => queryParams.append('GroupValue', g));
+    (formValues.levelValue as Array<string>).forEach((l) => queryParams.append('LevelValue', l));
+    
     const url = `${environment.apiUrl}/verbs?${queryParams.toString()}`;
+    console.log(url);
 
-    return fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error('API error');
-        return res.json();
-      })
-      .then((res: VerbModel[]) => {
-        return res.map((verb) => ({
-          ...verb,
-          verbGroup: mapVerbGroup(verb.verbGroup),
-          jlptLevel: mapVerbLevel(verb.jlptLevel),
-        }));
-      });
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error('API error');
+    }
+
+    const data: VerbModel[] = await res.json();
+
+    return data.map((verb) => ({
+      ...verb,
+      verbGroup: mapVerbGroup(verb.verbGroup),
+      jlptLevel: mapVerbLevel(verb.jlptLevel),
+    }));
   }
+
 
   async getVerb(id: number): Promise<VerbModel> {
     return fetch(environment.apiUrl + `/verbs/${id}`)
